@@ -18,6 +18,23 @@ const logoStyle = {
 }
 
 class IndexLayout extends React.Component {
+    state = {
+        selectedMenu: "0"
+    }
+
+    checkMenu() {
+        console.log("check menu")
+        // TODO: check the menu
+    }
+
+    componentDidMount() {
+        this.checkMenu()
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        this.checkMenu()
+    }
+
     render() {
         return (
             <Layout className="layout">
