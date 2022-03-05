@@ -39,11 +39,10 @@ class IndexLayout extends React.Component {
                                 <Menu.Item key="4"><Link to={"/about"}>About</Link></Menu.Item>
                             </Menu>
                         </Col>
-                        <Col span={2} offset={1}>
-                            <Button ghost style={{textAlign: "center"} } type="link" href={"/loginregister"}>Login/Register</Button>
-                        </Col>
-                        <Col span={1}>
-                            <Button type="primary" shape="circle" icon="search"/>
+                        <Col span={4} style={{height: "64px", paddingTop: "16px"}}>
+                            <Button type="primary" shape="circle" icon="search" style={{float: "right"}}/>
+                            <Button ghost style={{textAlign: "center", marginRight: "25px", float: "right"} } type="link" href={"/loginregister"}>Login/Register</Button>
+                            <div style={{clear: "both"}}/>
                         </Col>
                     </Row>
                 </Header>
