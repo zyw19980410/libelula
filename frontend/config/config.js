@@ -7,6 +7,9 @@ export default {
             }
         ],
     ],
+    cssLoaderOptions: {
+        localIdentName:'[local]',  // to import css
+    },
     routes: [
         {
             path: "/",
