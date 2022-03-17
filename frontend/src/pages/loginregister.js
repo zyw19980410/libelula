@@ -1,6 +1,5 @@
 import React from "react";
 import {Col, Row, Form, Input, Icon, Button} from "antd";
-import 'antd/dist/antd.css';
 import "../assets/css/loginregister.css";
 
 class LoginRegister extends React.Component {
@@ -10,7 +9,7 @@ class LoginRegister extends React.Component {
             <Row>
                 <Col span={8} offset={2}>
                     <h1>Login</h1>
-                    <Form style={{margin: "30px 0 0 0"}} layout={"vertical"}>
+                    <Form className={"form-container"} layout={"vertical"}>
                         <Form.Item>
                             {getFieldDecorator('username', {
                                 rules: [{ required: true, message: 'Please input your username!' }],
@@ -41,7 +40,7 @@ class LoginRegister extends React.Component {
                 </Col>
                 <Col span={8} offset={4}>
                     <h1>Register</h1>
-                    <Form style={{margin: "30px 0 0 0"}} layout={"vertical"}>
+                    <Form className={"form-container"} layout={"vertical"}>
                         <Form.Item>
                             {getFieldDecorator('username', {
                                 rules: [{ required: true, message: 'Please input your username!' }],

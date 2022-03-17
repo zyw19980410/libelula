@@ -1,20 +1,21 @@
 import React from "react";
 import {Form, Icon, Input, Button} from "antd";
+import "../assets/css/contact.css";
 
 class Contact extends React.Component {
     render() {
         const { getFieldDecorator } = this.props.form;
 
         return (
-            <div style={{marginTop: "30px"}}>
+            <div className={"contact-container"}>
                 <h1>Contact</h1>
-                <Form style={{margin: "50px 0 0 35%", width: "30%"}} layout={"vertical"}>
+                <Form className={"contact-form-container"} style={{marginLeft: "35%"}} layout={"vertical"}>
                     <Form.Item>
                         {getFieldDecorator('firstname', {
                             rules: [{ required: true, message: 'Please input your first name!' }],
                         })(
                             <Input
-                                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}} />}
                                 placeholder={"First Name"}
                             />,
                         )}
@@ -24,7 +25,7 @@ class Contact extends React.Component {
                             rules: [{ required: true, message: 'Please input your last name!' }],
                         })(
                             <Input
-                                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                prefix={<Icon type="user" style={{color: 'rgba(0,0,0,.25)'}} className={"field-icon"} />}
                                 placeholder={"Last Name"}
                             />,
                         )}
@@ -34,7 +35,7 @@ class Contact extends React.Component {
                             rules: [{ required: true, message: 'Please input your phone!' }],
                         })(
                             <Input
-                                prefix={<Icon type="phone" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                prefix={<Icon type="phone" style={{color: 'rgba(0,0,0,.25)'}} className={"field-icon"} />}
                                 placeholder={"Phone"}
                             />,
                         )}
@@ -44,7 +45,7 @@ class Contact extends React.Component {
                             rules: [{ required: true, message: 'Please input your email!' }],
                         })(
                             <Input
-                                prefix={<Icon type="mail" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                prefix={<Icon type="mail" style={{color: 'rgba(0,0,0,.25)'}} className={"field-icon"} />}
                                 placeholder={"Email"}
                             />,
                         )}
@@ -60,7 +61,7 @@ class Contact extends React.Component {
                         )}
                     </Form.Item>
                     <Form.Item>
-                        <Button type={"primary"} htmlType={"submit"} style={{width: "100%"}}>
+                        <Button type={"primary"} htmlType={"submit"} className={"submit-btn"}>
                             Submit
                         </Button>
                     </Form.Item>

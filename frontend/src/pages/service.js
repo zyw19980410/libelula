@@ -1,6 +1,7 @@
 import React from "react";
 import {Row, Col, Card} from "antd";
 import DemoPic from "../assets/images/demo3.jpeg";
+import "../assets/css/service.css"
 
 class Service extends React.Component {
     render() {
@@ -9,7 +10,7 @@ class Service extends React.Component {
                 <div>
                     <h1>Service</h1>
                 </div>
-                <div style={{marginTop: "30px"}}>
+                <div className={"service-container"}>
                     <Row gutter={[16, 32]}>
                         <Col span={8}>
                             <Card cover={<img alt={""} src={DemoPic} />}>

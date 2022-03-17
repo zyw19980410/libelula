@@ -1,0 +1,22 @@
+/*
+    First Name: Xuewei
+    Last Name: Niu
+    Student Id: 1001989800
+ */
+
+.contact-container {
+    margin-top: 30px;
+}
+
+.contact-form-container {
+    margin: 50px 0 0 35%;
+    width: 30%;
+}
+
+.field-icon {
+    color: rgba(0,0,0,.25);
+}
+
+.submit-btn {
+    width: 100%;
+}

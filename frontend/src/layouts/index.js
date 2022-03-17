@@ -43,7 +43,7 @@ class IndexLayout extends React.Component {
                         <Col span={4}>
                             <div style={logoStyle}>Libelula</div>
                         </Col>
-                        <Col span={16}>
+                        <Col span={14}>
                             <Menu
                                 theme="dark"
                                 mode="horizontal"
@@ -56,7 +56,7 @@ class IndexLayout extends React.Component {
                                 <Menu.Item key="4"><Link to={"/about"}>About</Link></Menu.Item>
                             </Menu>
                         </Col>
-                        <Col span={4} style={{height: "64px", paddingTop: "16px"}}>
+                        <Col span={6} style={{height: "64px", paddingTop: "16px"}}>
                             <Button type="primary" shape="circle" icon="search" style={{float: "right"}}/>
                             <Button ghost style={{textAlign: "center", marginRight: "25px", float: "right"} } type="link" href={"/loginregister"}>Login/Register</Button>
                             <div style={{clear: "both"}}/>
