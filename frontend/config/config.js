@@ -38,6 +38,10 @@ export default {
                 {
                     path: "customer",
                     component: "./customer"
+                },
+                {
+                    path: "cart",
+                    component: "./cart"
                 }
             ]
         }
