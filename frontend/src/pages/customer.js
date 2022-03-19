@@ -33,7 +33,7 @@ class Customer extends React.Component {
                         <h1>Hello Customer</h1>
                     </Col>
                     <Col offset={22}>
-                        <Icon type="shopping-cart" className={style.cartIcon}/>
+                        <Icon type="shopping-cart" className={style["cartIcon"]}/>
                     </Col>
                 </Row>
 
@@ -90,14 +90,14 @@ class Customer extends React.Component {
 }
 
 class ItemTile extends React.Component {
-    className = style.tile + " " + (this.props.size === "big" ? style.tileBig : style.tileSmall)
+    className = style["tile"] + " " + (this.props.size === "big" ? style["tileBig"] : style["tileSmall"])
     render() {
         return (
             <div className={this.className}>
-                <span className={style.desc}>{this.props.desc}</span>
+                <span className={style["desc"]}>{this.props.desc}</span>
                 <img src={DemoPic} alt="" />
                 {
-                    this.props.hasIcon && <span className={style.addCart+" "+style.cartIcon}><Icon type="shopping-cart" /></span>
+                    this.props.hasIcon && <span className={style["addCart"]+" "+style["cartIcon"]}><Icon type="shopping-cart" /></span>
                 }
             </div>
         )

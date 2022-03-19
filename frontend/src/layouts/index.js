@@ -1,21 +1,9 @@
 import React from "react";
 import {Layout, Menu, Row, Col, Button} from "antd";
 import Link from "umi/link";
+import style from "../assets/css/layouts.css";
 
 const {Header, Content, Footer} = Layout;
-
-const contentStyle = {
-    padding: "50px",
-    background: "white",
-}
-
-const logoStyle = {
-    color: "white",
-    lineHeight: "64px",
-    textAlign: "center",
-    fontWeight: "bold",
-    fontSize: "22px",
-}
 
 class IndexLayout extends React.Component {
     state = {
@@ -41,14 +29,14 @@ class IndexLayout extends React.Component {
                 <Header>
                     <Row>
                         <Col span={4}>
-                            <div style={logoStyle}>Libelula</div>
+                            <div className={style["logo"]}>Libelula</div>
                         </Col>
                         <Col span={14}>
                             <Menu
                                 theme="dark"
                                 mode="horizontal"
                                 defaultSelectedKeys={['1']}
-                                style={{lineHeight: '64px', display: "inline"}}
+                                className={style["menu"]}
                             >
                                 <Menu.Item key="1"><Link to={"/"}>Home</Link></Menu.Item>
                                 <Menu.Item key="2"><Link to={"/service"}>Service</Link></Menu.Item>
@@ -56,20 +44,21 @@ class IndexLayout extends React.Component {
                                 <Menu.Item key="4"><Link to={"/about"}>About</Link></Menu.Item>
                             </Menu>
                         </Col>
-                        <Col span={6} style={{height: "64px", paddingTop: "16px"}}>
-                            <Button type="primary" shape="circle" icon="search" style={{float: "right"}}/>
-                            <Button ghost style={{textAlign: "center", marginRight: "25px", float: "right"} } type="link" href={"/loginregister"}>Login/Register</Button>
-                            <div style={{clear: "both"}}/>
+                        <Col span={6} className={style["menu-right"]}>
+                            <Button type="primary" shape="circle" icon="search" className={style["float-right"]}/>
+                            <Button ghost className={style["ghost-btn"]} type="link" href={"/loginregister"}>Login/Register</Button>
+                            <div className={style["clear"]}/>
                         </Col>
                     </Row>
                 </Header>
-                <Content style={{padding: '30px 50px'}}>
-                    <div style={contentStyle}>
+                <Content className={style["content"]}>
+                    <div className={style["service-content"]}>
                         {this.props.children}
                     </div>
                 </Content>
-                <Footer style={{textAlign: 'center'}}>Libelula 2022 - Designed by Xuewei Niu, Miaochen Li & Lingkun
-                    Sun</Footer>
+                <Footer className={style["footer"]}>
+                    Libelula 2022 - Designed by Xuewei Niu, Miaochen Li &amp; Lingkun Sun
+                </Footer>
             </Layout>
         )
     }

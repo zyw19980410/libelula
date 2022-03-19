@@ -1,6 +1,6 @@
 import React from "react";
 import {Col, Row, Form, Input, Icon, Button} from "antd";
-import "../assets/css/loginregister.css";
+import style from "../assets/css/loginregister.css";
 
 class LoginRegister extends React.Component {
     render() {
@@ -9,13 +9,13 @@ class LoginRegister extends React.Component {
             <Row>
                 <Col span={8} offset={2}>
                     <h1>Login</h1>
-                    <Form className={"form-container"} layout={"vertical"}>
+                    <Form className={style["form-container"]} layout={"vertical"}>
                         <Form.Item>
                             {getFieldDecorator('username', {
                                 rules: [{ required: true, message: 'Please input your username!' }],
                             })(
                                 <Input
-                                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                    prefix={<Icon type="user" className={style["field-icon"]} />}
                                     placeholder={"Username"}
                                 />,
                             )}
@@ -25,14 +25,14 @@ class LoginRegister extends React.Component {
                                 rules: [{ required: true, message: 'Please input your password!' }],
                             })(
                                 <Input
-                                    prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                    prefix={<Icon type="lock" className={style["field-icon"]} />}
                                     placeholder={"Password"}
                                     type={"password"}
                                 />,
                             )}
                         </Form.Item>
                         <Form.Item>
-                            <Button type={"primary"} htmlType={"submit"} style={{width: "100%"}}>
+                            <Button type={"primary"} htmlType={"submit"} className={style["login-form-button"]}>
                                 Login
                             </Button>
                         </Form.Item>
@@ -40,13 +40,13 @@ class LoginRegister extends React.Component {
                 </Col>
                 <Col span={8} offset={4}>
                     <h1>Register</h1>
-                    <Form className={"form-container"} layout={"vertical"}>
+                    <Form className={style["form-container"]} layout={"vertical"}>
                         <Form.Item>
                             {getFieldDecorator('username', {
                                 rules: [{ required: true, message: 'Please input your username!' }],
                             })(
                                 <Input
-                                    prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                    prefix={<Icon type="user" className={style["field-icon"]} />}
                                     placeholder={"Username"}
                                 />,
                             )}
@@ -56,7 +56,7 @@ class LoginRegister extends React.Component {
                                 rules: [{ required: true, message: 'Please input your password!' }],
                             })(
                                 <Input
-                                    prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                    prefix={<Icon type="lock" className={style["field-icon"]} />}
                                     placeholder={"Password"}
                                     type={"password"}
                                 />,
@@ -67,14 +67,14 @@ class LoginRegister extends React.Component {
                                 rules: [{ required: true, message: 'Please input your password again!' }],
                             })(
                                 <Input
-                                    prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                                    prefix={<Icon type="lock" className={style["field-icon"]} />}
                                     placeholder={"Confirm Password"}
                                     type={"password"}
                                 />,
                             )}
                         </Form.Item>
                         <Form.Item>
-                            <Button type={"primary"} htmlType={"submit"} style={{width: "100%"}}>
+                            <Button type={"primary"} htmlType={"submit"} className={style["login-form-button"]}>
                                 Register
                             </Button>
                         </Form.Item>

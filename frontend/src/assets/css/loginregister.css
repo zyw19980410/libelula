@@ -11,3 +11,7 @@
 .login-form-button {
     width: 100%;
 }
+
+.field-icon {
+    color: rgba(0,0,0,.25);
+}

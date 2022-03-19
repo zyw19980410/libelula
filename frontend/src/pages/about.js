@@ -1,13 +1,13 @@
 import React from "react";
 import img1 from "../assets/images/about-img-1.png"
-import "../assets/css/about.css";
+import style from "../assets/css/about.css";
 
 class About extends React.Component {
     render() {
         return (
             <div className={"about-container"}>
                 <h1>About</h1>
-                <img alt={""} src={img1} className={"about-img"}/>
+                <img alt={""} src={img1} className={style["about-img"]}/>
                 <div className={"about-paragraph"}>
                     Shopping is an activity in which a customer browses the available goods or services presented by one
                     or more retailers with the potential intent to purchase a suitable selection of them. A typology of
@@ -22,7 +22,7 @@ class About extends React.Component {
                     of travelling. A retailer or a shop is a business that presents a selection of goods and offers to
                     trade or sell them to customers for money or other goods.
                 </div>
-                <div className={"about-paragraph"}>
+                <div className={style["about-paragraph"]}>
                     Shopping is an activity in which a customer browses the available goods or services presented by one
                     or more retailers with the potential intent to purchase a suitable selection of them. A typology of
                     shopper types has been developed by scholars which identifies one group of shoppers as recreational
@@ -36,7 +36,7 @@ class About extends React.Component {
                     of travelling. A retailer or a shop is a business that presents a selection of goods and offers to
                     trade or sell them to customers for money or other goods.
                 </div>
-                <div className={"about-paragraph"}>
+                <div className={style["about-paragraph"]}>
                     Shopping is an activity in which a customer browses the available goods or services presented by one
                     or more retailers with the potential intent to purchase a suitable selection of them. A typology of
                     shopper types has been developed by scholars which identifies one group of shoppers as recreational
