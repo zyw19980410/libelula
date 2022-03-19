@@ -43,7 +43,7 @@ class Customer extends React.Component {
                         <Row gutter={[16, 16]}>
                             {
                                 this.productTiles.map((item, idx) => {
-                                    return <Col span={4} ><ItemTile hasIcon={true} size="big" desc={item}></ItemTile></Col>
+                                    return <Col span={4} key={idx}><ItemTile hasIcon={true} size="big" desc={item}></ItemTile></Col>
                                 })
                             }
                         </Row>
@@ -54,7 +54,7 @@ class Customer extends React.Component {
                                 <Row gutter={[15, 15]}>
                                     {
                                         this.courseTiles.map((item, idx) => {
-                                            return <Col span={4} ><ItemTile hasIcon={false} desc={item}></ItemTile></Col>
+                                            return <Col span={4} key={idx}><ItemTile hasIcon={false} desc={item}></ItemTile></Col>
                                         })
                                     }
                                 </Row>
@@ -65,7 +65,7 @@ class Customer extends React.Component {
                                 <Row gutter={[15, 15]}>
                                     {
                                         this.bakeryTiles.map((item, idx) => {
-                                            return <Col span={4} ><ItemTile hasIcon={false} desc={item}></ItemTile></Col>
+                                            return <Col span={4} key={idx}><ItemTile hasIcon={false} desc={item}></ItemTile></Col>
                                         })
                                     }
                                 </Row>
@@ -78,7 +78,7 @@ class Customer extends React.Component {
                         <ul>
                             {
                                 this.listItems.map((item, idx) => {
-                                    return <li>{item}</li>
+                                    return <li key={idx}>{item}</li>
                                 })
                             }
                         </ul>
