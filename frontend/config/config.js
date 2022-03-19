@@ -8,7 +8,7 @@ export default {
         ],
     ],
     cssLoaderOptions: {
-        localIdentName:'[local]',  // to import css
+        // localIdentName:'[local]',  // to import css
     },
     routes: [
         {
@@ -34,6 +34,10 @@ export default {
                 {
                     path: "loginregister",
                     component: "./loginregister"
+                },
+                {
+                    path: "customer",
+                    component: "./customer"
                 }
             ]
         }
