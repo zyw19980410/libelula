@@ -42,6 +42,10 @@ export default {
                 {
                     path: "cart",
                     component: "./cart"
+                },
+                {
+                    path: "owner_admin",
+                    component: "./owner_admin"
                 }
             ]
         }

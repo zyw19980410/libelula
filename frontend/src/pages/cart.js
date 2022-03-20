@@ -34,7 +34,7 @@ class Cart extends React.Component {
     ];
 
     render() {
-        const { cardsList, cardsLoading } = this.props;
+        const { cardsLoading } = this.props;
 
         return (
             <div className={style["cart-container"]}>
