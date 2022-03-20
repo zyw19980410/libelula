@@ -38,7 +38,24 @@ export default {
                 {
                     path: "customer",
                     component: "./customer"
-                }
+                },
+                {
+                    path: "cart",
+                    component: "./cart"
+                },
+                {
+                    path: "owner_admin",
+                    component: "./owner_admin"
+                },
+                {
+                    path: "admin",
+                    component: "./admin",
+                    routes: [
+                        {path: '/admin/graph1', component: 'Dashboard/graph'},
+                        {path: '/admin/graph2', component: 'Dashboard/graph'},
+                        {path: '/admin/graph3', component: 'Dashboard/graph'},
+                    ]
+                },
             ]
         }
     ]
