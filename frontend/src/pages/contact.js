@@ -51,6 +51,19 @@ class Contact extends React.Component {
                         )}
                     </Form.Item>
                     <Form.Item>
+                        {getFieldDecorator('email confirmation', {
+                            rules: [
+                                { required: true, message: 'Please input your email again!' },
+                                { validator: this.compareToFirstEmail },
+                            ],
+                        })(
+                            <Input
+                                prefix={<Icon type="mail" className={style["field-icon"]} />}
+                                placeholder={"Email Confirmation"}
+                            />,
+                        )}
+                    </Form.Item>
+                    <Form.Item>
                         {getFieldDecorator('feedback', {
                             rules: [{ required: true, message: 'Please input your feedback!' }],
                         })(
@@ -68,6 +81,15 @@ class Contact extends React.Component {
                 </Form>
             </div>
         )
+    }
+
+    compareToFirstEmail = (rule, value, callback) => {
+        const {form} = this.props
+        if (value && value !== form.getFieldValue("email")) {
+            callback('Please make sure the email correctness!');
+        } else {
+            callback();
+        }
     }
 }
 

@@ -1,10 +1,12 @@
 import React from "react";
 import {Col, Row, Form, Input, Icon, Button} from "antd";
 import style from "../assets/css/loginregister.css";
+import Role from "../store/role";
+import {router} from "umi";
 
-class LoginRegister extends React.Component {
+class Login_register extends React.Component {
     render() {
-        const { getFieldDecorator } = this.props.form;
+        const {getFieldDecorator} = this.props.form;
         return (
             <Row>
                 <Col span={8} offset={2}>
@@ -12,27 +14,28 @@ class LoginRegister extends React.Component {
                     <Form className={style["form-container"]} layout={"vertical"}>
                         <Form.Item>
                             {getFieldDecorator('username', {
-                                rules: [{ required: true, message: 'Please input your username!' }],
+                                rules: [{required: true, message: 'Please input your username!'}],
                             })(
                                 <Input
-                                    prefix={<Icon type="user" className={style["field-icon"]} />}
+                                    prefix={<Icon type="user" className={style["field-icon"]}/>}
                                     placeholder={"Username"}
                                 />,
                             )}
                         </Form.Item>
                         <Form.Item>
                             {getFieldDecorator('password', {
-                                rules: [{ required: true, message: 'Please input your password!' }],
+                                rules: [{required: true, message: 'Please input your password!'}],
                             })(
                                 <Input
-                                    prefix={<Icon type="lock" className={style["field-icon"]} />}
+                                    prefix={<Icon type="lock" className={style["field-icon"]}/>}
                                     placeholder={"Password"}
                                     type={"password"}
                                 />,
                             )}
                         </Form.Item>
                         <Form.Item>
-                            <Button type={"primary"} htmlType={"submit"} className={style["login-form-button"]}>
+                            <Button type={"primary"} htmlType={"submit"} onClick={this.doUserLogin}
+                                    className={style["login-form-button"]}>
                                 Login
                             </Button>
                         </Form.Item>
@@ -42,32 +45,32 @@ class LoginRegister extends React.Component {
                     <h1>Register</h1>
                     <Form className={style["form-container"]} layout={"vertical"}>
                         <Form.Item>
-                            {getFieldDecorator('username', {
-                                rules: [{ required: true, message: 'Please input your username!' }],
+                            {getFieldDecorator('reg-username', {
+                                rules: [{required: true, message: 'Please input your username!'}],
                             })(
                                 <Input
-                                    prefix={<Icon type="user" className={style["field-icon"]} />}
+                                    prefix={<Icon type="user" className={style["field-icon"]}/>}
                                     placeholder={"Username"}
                                 />,
                             )}
                         </Form.Item>
                         <Form.Item>
-                            {getFieldDecorator('password', {
-                                rules: [{ required: true, message: 'Please input your password!' }],
+                            {getFieldDecorator('reg-password', {
+                                rules: [{required: true, message: 'Please input your password!'}],
                             })(
                                 <Input
-                                    prefix={<Icon type="lock" className={style["field-icon"]} />}
+                                    prefix={<Icon type="lock" className={style["field-icon"]}/>}
                                     placeholder={"Password"}
                                     type={"password"}
                                 />,
                             )}
                         </Form.Item>
                         <Form.Item>
-                            {getFieldDecorator('password', {
-                                rules: [{ required: true, message: 'Please input your password again!' }],
+                            {getFieldDecorator('reg-reenter-password', {
+                                rules: [{required: true, message: 'Please input your password again!'}],
                             })(
                                 <Input
-                                    prefix={<Icon type="lock" className={style["field-icon"]} />}
+                                    prefix={<Icon type="lock" className={style["field-icon"]}/>}
                                     placeholder={"Confirm Password"}
                                     type={"password"}
                                 />,
@@ -83,8 +86,25 @@ class LoginRegister extends React.Component {
             </Row>
         )
     }
+
+    // TODO(justxuewei): redirect to other pages
+    doUserLogin = (event) => {
+        const {form} = this.props
+        console.log(Role.CurrentRole)
+        if (form.getFieldValue('username') === "custom") {
+            console.log("custom login")
+        } else if (form.getFieldValue('username') === "provider") {
+            console.log("provider login")
+        } else if (form.getFieldValue('username') === "admin") {
+            router.push("/admin")
+        } else if (form.getFieldValue('username') === "super-admin") {
+            console.log("super-admin login")
+        } else {
+            console.log("anonymous login")
+        }
+    }
 }
 
-const WrappedLoginRegister = Form.create({})(LoginRegister);
+const WrappedLoginRegister = Form.create({})(Login_register);
 
 export default WrappedLoginRegister;

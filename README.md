@@ -29,4 +29,6 @@ To Be Supplemented...
 FrontEnd
 
 - [React 入门实例教程](https://www.ruanyifeng.com/blog/2015/03/react.html)
-- [Ant Design 实战教程 (Recommended!)](https://www.yuque.com/ant-design/course/intro)
+- [Ant Design 实战教程 （Recommended!）](https://www.yuque.com/ant-design/course/intro)
+
+- [Redux 入门教程（一）：基本用法（Recommended!）](https://www.ruanyifeng.com/blog/2016/09/redux_tutorial_part_one_basic_usages.html)
