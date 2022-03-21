@@ -8,17 +8,21 @@ Version: 0.0.1
 Time: 2022.3.21
 Tags:Simplicity,flat,responsive
 */
+
+/*
+    First Name: Lingkun
+    Last Name: Sun
+    Student Id: 1001989812
+*/
+
 @import url(css/common.css);
-
 @import url(css/footer.css);
-
 @import url(css/grid.css);
-
 @import url(css/article.css);
-
 @import url(css/header.css);
 @import url(css/icon.css);
 @import url(css/comment.css);
+
 .github-corner:hover .octo-arm {
 	animation:octocat-wave 560ms ease-in-out
 }
@@ -29,33 +33,6 @@ Tags:Simplicity,flat,responsive
 .about h1 {
     margin:50px 0 15px
 }
-.mainbox {
-	padding: 0 5% 0 5%;
-	margin: 20px;
-	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(252,252,252,0.9)), to(rgba(255,255,255,0.9)), color-stop(3%, rgba(247,247,247,0.9)), color-stop(12%, rgba(242,242,242,0.9)), color-stop(90%, rgba(249,249,249,0.9)));
-	background-image: -webkit-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
-	background-image: -moz-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
-	background-image: -o-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
-	background-image: -ms-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
-	background-image: linear-gradient(to bottom, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
-	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.75); 
-	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
-	box-shadow: 0 1px 5px rgba(0,0,0,0.75);
-}
-.fribox {
-	padding: 3% 0 3% 0;
-	margin: 5%;
-	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(252,252,252,0.9)), to(rgba(255,255,255,0.9)), color-stop(3%, rgba(247,247,247,0.9)), color-stop(12%, rgba(242,242,242,0.9)), color-stop(90%, rgba(249,249,249,0.9)));
-	background-image: -webkit-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
-	background-image: -moz-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
-	background-image: -o-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
-	background-image: -ms-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
-	background-image: linear-gradient(to bottom, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
-	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.75); 
-	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
-	box-shadow: 0 1px 5px rgba(0,0,0,0.75);
-}
-
 .post-arc li {
 	display:block;
 	list-style: none;
