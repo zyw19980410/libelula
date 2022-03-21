@@ -1,7 +1,4 @@
 <?php
-/*
-Template Name: 归档
-*/
 function _PostList($atts = array())
 {
     global $wpdb;
@@ -12,11 +9,11 @@ function _PostList($atts = array())
     $rawposts = null;
     $html = '<div class="archives-container"><ul class="archives-list">';
     foreach ($posts as $year => $posts_yearly) {
-        $html .= '<li><div class="archives-year">' . $year . '年</div><ul class="archives-sublist">';
+        $html .= '<li><div class="archives-year">' . $year . '</div><ul class="archives-sublist">';
         foreach ($posts_yearly as $post) {
             $html .= '<li>';
-            $html .= '<time datetime="' . $post->post_date . '">' . mysql2date('m月d日 D', $post->post_date, true) . '</time>';
-            $html .= '：《<a href="' . get_permalink($post->ID) . '">' . $post->post_title . '</a>》';
+            $html .= '<time datetime="' . $post->post_date . '">' . mysql2date('m/d D', $post->post_date, true) . '</time>';
+            $html .= '"<a href="' . get_permalink($post->ID) . '">' . $post->post_title . '</a>"';
             $html .= "</li>";
         }
         $html .= "</ul></li>";
@@ -34,14 +31,14 @@ get_header();
 ?>
 <div class="mainbox">
   <div class="post-arc">
-  	<h4><i class="iconfont icon-icon-test1"></i> 时间轴归档</h4>
+  	<h4><i class="iconfont icon-icon-test1"></i> Timeline</h4>
   <?php echo _PostList();  ?>
   </div>
 </div>
 
 <div class="mainbox">
 	<div class="tagcloud">
-		<h4><i class="iconfont icon-tags"></i> 标签云</h4>
+		<h4><i class="iconfont icon-tags"></i> Tags</h4>
     	<?php wp_tag_cloud("unit=px & smallest=10 & largest=25 & orderby=count&order=DESC");?>
 	</div>
 </div>

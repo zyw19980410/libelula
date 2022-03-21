@@ -4,7 +4,7 @@
                         <div class="mainbox">
                         <li class="article-list-item reveal">
                             <a href="<?php the_permalink(); ?>">
-                                 <h3><b><?php if( is_sticky() ) echo '<span style="color:grey;"><b>【↑置顶↑】</b></span>'; the_title(); ?></b></h3>
+                                 <h3><b><?php if( is_sticky() ) echo '<span style="color:grey;"><b>[TOP]</b></span>'; the_title(); ?></b></h3>
                             </a>
                             <p>
                                 <p><?php echo wp_trim_words(get_the_excerpt(), 90); ?></p>
@@ -24,8 +24,8 @@
                 		</div>
                         <?php endwhile; ?>
                         <?php else : ?>
-                        <h3 class="title"><a href="#" rel="bookmark">无文章</a></h3>
-                        <p>博主暂时没有留下痕迹</p>
+                        <h3 class="title"><a href="#" rel="bookmark">No Articles</a></h3>
+                        <p>There is no contents</p>
                         <?php endif; ?>
                     </ul>
 <?php get_footer(); ?>

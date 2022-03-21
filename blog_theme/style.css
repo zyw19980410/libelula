@@ -1,11 +1,11 @@
 /*
-Theme Name: LT
-Theme URI: https://www.edisoncgh.com/archives/35
-Description: 一款风格简洁的轻量化主题。
-Author: edisoncgh
-Author URI:https://www.edisoncgh.com/introduction.html
-Version: 1.0
-Time: 2020.3.4
+Theme Name: Libelula
+Theme URI: https://xxn9800.uta.cloud/libelula/blog/
+Description: A simple theme for wordpress.
+Author: Miaochen Li & Lingkun Sun & Xuewei Niu
+Author URI:https://xxn9800.uta.cloud/libelula/blog/
+Version: 0.0.1
+Time: 2022.3.21
 Tags:Simplicity,flat,responsive
 */
 html {
@@ -894,18 +894,6 @@ img {
 	transition: 0.7s all;
 	padding: 14px 30px;
 	text-transform: uppercase;
-}
-.blogmenu li a:before {
-	content: '';
-	width: 40px;
-	position: absolute;
-	border-bottom: 4px solid #000000;
-	bottom: 0;
-	right: 150px;
-	transition: 0.7s all;
-}
-.blogmenu li a:hover:before {
-	right: 0;
 }
 .embed-responsive {
     position:relative;

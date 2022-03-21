@@ -1,7 +1,4 @@
 <?php 
-/*
-Template Name: 友情链接
-*/
 get_header(); ?>	
 	<div id="primary" class="site-content">
 	    <?php while ( have_posts() ) : the_post(); ?>
@@ -26,7 +23,7 @@ get_header(); ?>
     								<a href="' . $bookmark->link_url . '" title="'. $bookmark->link_name .'" target="_blank">'. $bookmark->link_name .'</a>
     							</h3>
     						</header> 
-    						<div class="entry-site"><p>“' . $bookmark->link_description . '”</p></div>
+    						<div class="entry-site"><p>"' . $bookmark->link_description . '"</p></div>
     					</div>
     				</div>
     			</section>	
