@@ -1,0 +1,23 @@
+.footer {
+    display:block;
+    padding:35px 0 85px;
+    border-top:1px solid #ebeaea
+}
+.footer p {
+    font-size:15px;
+    color:#ada8a8
+}
+.footer a {
+    text-decoration:none
+}
+.footer span{
+	font-size:15px;
+    color:#ada8a8;
+}
+.footer script{
+	font-size:15px;
+    color:#ada8a8;
+}
+.poets{
+	text-align: right;
+}
