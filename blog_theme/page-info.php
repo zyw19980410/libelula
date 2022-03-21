@@ -1,7 +1,4 @@
 <?php 
-/*
-Template Name: 关于
-*/
 get_header(); ?>
 <?php if (have_posts()) : the_post(); update_post_caches($posts); ?>
 <?php setPostViews(get_the_ID()); ?>  
