@@ -1,9 +1,16 @@
 import React from "react";
-import { Icon, Row, Col, Card } from "antd";
+import { Icon, Row, Col, Modal } from "antd";
 import DemoPic from "../assets/images/demo3.jpeg";
 import style from  "../assets/css/customer.css";
 
 class Customer extends React.Component {
+    state = { modalVisible: false }
+    showModal = () => {
+        this.setState({modalVisible: true})
+    }
+    hideModal = () => {
+        this.setState({modalVisible: false})
+    }
     listItems = [
         "This is a list",
         "Another list item",
@@ -27,6 +34,11 @@ class Customer extends React.Component {
     render() {
         return (
             <div>
+                <Modal title="Product Detail" visible={this.state.modalVisible} okText="Order" onCancel={()=>{this.hideModal()}}>
+                    <img src={DemoPic} alt="" className={style["img"]} />
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad voluptate, sunt distinctio hic rerum temporibus numquam voluptas magni a dolor! Expedita praesentium cupiditate a. Aspernatur quidem impedit quasi adipisci officia?</p>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad voluptate, sunt distinctio hic rerum temporibus numquam voluptas magni a dolor! Expedita praesentium cupiditate a. Aspernatur quidem impedit quasi adipisci officia?</p>
+                </Modal>
                 {/* Page title */}
                 <Row >
                     <Col span={22}>
@@ -43,7 +55,7 @@ class Customer extends React.Component {
                         <Row gutter={[16, 16]}>
                             {
                                 this.productTiles.map((item, idx) => {
-                                    return <Col span={4} key={idx}><ItemTile hasIcon={true} size="big" desc={item}></ItemTile></Col>
+                                    return <Col span={4} key={idx} onClick={()=>{this.showModal()}}><ItemTile hasIcon={true} size="big" desc={item}></ItemTile></Col>
                                 })
                             }
                         </Row>
@@ -54,7 +66,7 @@ class Customer extends React.Component {
                                 <Row gutter={[15, 15]}>
                                     {
                                         this.courseTiles.map((item, idx) => {
-                                            return <Col span={4} key={idx}><ItemTile hasIcon={false} desc={item}></ItemTile></Col>
+                                            return <Col span={4} key={idx} onClick={()=>{this.showModal()}}><ItemTile hasIcon={false} desc={item}></ItemTile></Col>
                                         })
                                     }
                                 </Row>
@@ -65,7 +77,7 @@ class Customer extends React.Component {
                                 <Row gutter={[15, 15]}>
                                     {
                                         this.bakeryTiles.map((item, idx) => {
-                                            return <Col span={4} key={idx}><ItemTile hasIcon={false} desc={item}></ItemTile></Col>
+                                            return <Col span={4} key={idx} onClick={()=>{this.showModal()}}><ItemTile hasIcon={false} desc={item}></ItemTile></Col>
                                         })
                                     }
                                 </Row>
@@ -95,7 +107,7 @@ class ItemTile extends React.Component {
         return (
             <div className={this.className}>
                 <span className={style["desc"]}>{this.props.desc}</span>
-                <img src={DemoPic} alt="" />
+                <img src={DemoPic} alt="" className={style["img"]}/>
                 {
                     this.props.hasIcon && <span className={style["addCart"]+" "+style["cartIcon"]}><Icon type="shopping-cart" /></span>
                 }
