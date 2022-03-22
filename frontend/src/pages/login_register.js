@@ -1,6 +1,6 @@
 import React from "react";
 import {Col, Row, Form, Input, Icon, Button} from "antd";
-import style from "../assets/css/loginregister.css";
+import style from "../assets/css/login_register.css";
 import Role from "../store/role";
 import {router} from "umi";
 

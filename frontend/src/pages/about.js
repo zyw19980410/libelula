@@ -8,7 +8,7 @@ class About extends React.Component {
             <div className={"about-container"}>
                 <h1>About</h1>
                 <img alt={""} src={img1} className={style["about-img"]}/>
-                <div className={"about-paragraph"}>
+                <div className={style["about-paragraph"]}>
                     Shopping is an activity in which a customer browses the available goods or services presented by one
                     or more retailers with the potential intent to purchase a suitable selection of them. A typology of
                     shopper types has been developed by scholars which identifies one group of shoppers as recreational

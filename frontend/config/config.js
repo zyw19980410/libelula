@@ -32,7 +32,7 @@ export default {
                     component: "./about"
                 },
                 {
-                    path: "loginregister",
+                    path: "login_register",
                     component: "./login_register"
                 },
                 {
