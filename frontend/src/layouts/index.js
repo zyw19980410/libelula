@@ -46,7 +46,9 @@ class IndexLayout extends React.Component {
                         </Col>
                         <Col span={6} className={style["menu-right"]}>
                             <Button type="primary" shape="circle" icon="search" className={style["float-right"]}/>
-                            <Button ghost className={style["ghost-btn"]} type="link" href={"/login_register"}>Login/Register</Button>
+                            <Button ghost className={style["ghost-btn"]} type="link">
+                                <Link to={"/login_register"}>Login/Register</Link>
+                            </Button>
                             <div className={style["clear"]}/>
                         </Col>
                     </Row>
