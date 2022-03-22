@@ -90,17 +90,18 @@ class Login_register extends React.Component {
     // TODO(justxuewei): redirect to other pages
     doUserLogin = (event) => {
         const {form} = this.props
-        console.log(Role.CurrentRole)
         if (form.getFieldValue('username') === "custom") {
-            console.log("custom login")
-        } else if (form.getFieldValue('username') === "provider") {
-            console.log("provider login")
+            router.push("/customer")
+            Role.CurrentRole = Role.CUSTOMER_ROLE
         } else if (form.getFieldValue('username') === "admin") {
-            router.push("/admin")
+            router.push("/admin/user_list")
+            Role.CurrentRole = Role.ADMIN_ROLE
         } else if (form.getFieldValue('username') === "super-admin") {
-            console.log("super-admin login")
+            router.push("/admin/user_list")
+            Role.CurrentRole = Role.ADMIN_ROLE
         } else {
-            console.log("anonymous login")
+            router.push("/")
+            Role.CurrentRole = Role.ANONYMOUS_ROLE
         }
     }
 }
