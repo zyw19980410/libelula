@@ -90,7 +90,7 @@ class Login_register extends React.Component {
     // TODO(justxuewei): redirect to other pages
     doUserLogin = (event) => {
         const {form} = this.props
-        if (form.getFieldValue('username') === "custom") {
+        if (form.getFieldValue('username') === "customer") {
             router.push("/customer")
             Role.CurrentRole = Role.CUSTOMER_ROLE
         } else if (form.getFieldValue('username') === "admin") {

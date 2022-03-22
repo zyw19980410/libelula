@@ -42,6 +42,7 @@ class IndexLayout extends React.Component {
                                 <Menu.Item key="2"><Link to={"/service"}>Service</Link></Menu.Item>
                                 <Menu.Item key="3"><Link to={"/contact"}>Contact</Link></Menu.Item>
                                 <Menu.Item key="4"><Link to={"/about"}>About</Link></Menu.Item>
+                                <Menu.Item key="5"><Link to={"/cart"}>Cart</Link></Menu.Item>
                             </Menu>
                         </Col>
                         <Col span={6} className={style["menu-right"]}>
