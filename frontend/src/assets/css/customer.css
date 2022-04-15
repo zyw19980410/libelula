@@ -2,12 +2,12 @@
     position: relative;
 }
 .tile-big {
-    height: 100px;
-    width: 130px;
+    height: 130px;
+    width: 150px;
 }
 .tile-big img {
-    height: 100px;
-    width: 130px;
+    height: 130px;
+    width: 150px;
 }
 .tile-small {
     height: 50px;
@@ -37,4 +37,7 @@
 }
 .detail-img {
     width: 100%;
+}
+.price-tag {
+    color: #960505;
 }
