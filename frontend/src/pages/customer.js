@@ -2,6 +2,7 @@ import React from "react";
 import { Icon, Row, Col, Modal, message } from "antd";
 import style from "../assets/css/customer.css";
 import request from 'umi-request'
+import Auth from '../store/auth'
 
 class Customer extends React.Component {
 
@@ -51,7 +52,7 @@ class Customer extends React.Component {
     ]
     showModal = id => {
         self = this
-        request.get(`http://localhost:8081/public/api/product/${id}`)
+        request.get(`http://localhost:10000/api/product/${id}`)
         .then(function (response) {
             self.setState({
                 currentProduct: {
@@ -59,7 +60,8 @@ class Customer extends React.Component {
                     title: response.body.product['product_title'],
                     desc: response.body.product['product_des'],
                     img: response.body.images[0]['url'],
-                    price: response.body.variants[0]['price']
+                    price: response.body.variants[0]['price'],
+                    variant_id: response.body.variants[0]['id'],
                 },
                 modalVisible: true,
             })
@@ -75,6 +77,23 @@ class Customer extends React.Component {
         this.setState({
             modalVisible: false,
         });
+        if (Auth.Token === "") {
+            message.error("Please log in!")
+            return
+        }
+        request.post('http://localhost:10000/api/cart', {
+            data: {variant_id: this.state.variant_id, quantity: 1},
+            headers: {Authorization: Auth.Token}
+        })
+        .then(function (response) {
+            self.setState({
+                modalVisible: true,
+            })
+        })
+        .catch(function (error) {
+            console.log(error)
+        }
+            
     };
 
     handleCancel = e => {
@@ -86,7 +105,7 @@ class Customer extends React.Component {
     render() {
         return (
             <div>
-                <Modal title="Detail" visible={this.state.modalVisible} okText="Add to cart" onCancel={() => { this.handleCancel() }} onOk={() => { message.success('Success!') }}>
+                <Modal title="Detail" visible={ this.state.modalVisible } okText="Add to cart" onCancel={ this.handleCancel } onOk={ this.handleOk }>
                     <h2>{this.state.currentProduct.title}</h2>
                     <img src={this.state.currentProduct.img} alt="" className={style["detail-img"]} />
                     <p className={style['price-tag']}>Price: $ {this.state.currentProduct.price}</p>
