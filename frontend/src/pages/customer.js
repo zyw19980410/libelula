@@ -17,7 +17,7 @@ class Customer extends React.Component {
 
         let self = this
         request
-        .get('http://localhost:8081/public/api/product?page=1&pageSize=100?page=1&pageSize=100')
+        .get('http://localhost:10000/api/product?page=1&pageSize=100?page=1&pageSize=100')
         .then(function (response) {
             let products = []
             response['body']['data'].forEach((v, i) => {
@@ -82,18 +82,17 @@ class Customer extends React.Component {
             return
         }
         request.post('http://localhost:10000/api/cart', {
-            data: {variant_id: this.state.variant_id, quantity: 1},
-            headers: {Authorization: Auth.Token}
+            data: {variant_id: this.state.currentProduct.variant_id, quantity: 1},
+            headers: {Authorization: `Bearer ${Auth.Token}`}
         })
         .then(function (response) {
             self.setState({
-                modalVisible: true,
+                modalVisible: false,
             })
         })
         .catch(function (error) {
             console.log(error)
-        }
-            
+        })
     };
 
     handleCancel = e => {
@@ -103,7 +102,6 @@ class Customer extends React.Component {
         });
     };
     render() {
-        console.log(Role.CurrentRole)
         return (
             <div>
 
