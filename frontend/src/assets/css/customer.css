@@ -3,7 +3,11 @@
 }
 .tile-big {
     height: 100px;
-    width: 130px
+    width: 130px;
+}
+.tile-big img {
+    height: 100px;
+    width: 130px;
 }
 .tile-small {
     height: 50px;
@@ -30,4 +34,7 @@
 .desc:hover {
     opacity: 0.7;
     background-color: rebeccapurple;
+}
+.detail-img {
+    width: 100%;
 }
