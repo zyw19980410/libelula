@@ -1,3 +1,19 @@
-#content > .ant-row, #content > .ant-row-flex {
+/*
+    First Name: Lingkun
+    Last Name: Sun
+    Student Id: 1001989812
+ */
+
+.index-head {
+    background-color: #efefef;
+    text-align: center;
+    padding: 100px 0px;
+}
+
+.content {
     margin: 50px 0px;
+}
+
+.content-img {
+    width: 100%;
 }

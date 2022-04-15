@@ -1,0 +1,195 @@
+/*
+    First Name: Xuewei
+    Last Name: Niu
+    Student Id: 1001989800
+*/
+
+.article {
+    display:block;
+    margin: 20px 0;
+    padding: 20 0 0 0;
+}
+.article-list {
+    display:block;
+    padding:0;
+    margin:50px 0;
+    list-style:none
+}
+.article-list li {
+    position:relative;
+    display:block;
+    padding:50px 0;
+    border-bottom:1px solid #ebeaea
+}
+.article-list li:last-child {
+    border-bottom:0
+}
+.article-list li.article-pagination {
+    display:block;
+    height:93px;
+    padding:15px 0 50px
+}
+.article-list li.article-pagination a {
+    display:inline-block;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.1em;
+    color:#888181;
+    text-transform:uppercase;
+    -webkit-transition:color 0.2s linear;
+    transition:color 0.2s linear
+}
+.article-list li.article-pagination a .icon {
+    display:inline-block;
+    margin-top:-2px;
+    font-size:20px;
+    vertical-align:middle
+}
+.article-list li.article-pagination a:hover {
+    color:#121111
+}
+.article-list-ann {
+	padding: 5 15 5 15;
+	border-radius: 10px 10px 0px 0px;
+	background-color: rgba(239,239,239);
+	margin-bottom: 30px;
+}
+.article-list-ann a {
+	text-decoration:none;
+	font-weight:bold;
+}
+.article-list-ann a:hover {
+	color: rgba(206,206,206);
+}
+.article-list-item h5 {
+    position:relative;
+    display:block;
+    padding-right:25px;
+    color:#121111;
+    border-bottom:1px solid transparent
+}
+.article-list-item h5 .icon {
+    display:inline-block;
+    margin-top:-2px;
+    vertical-align:middle;
+    opacity:0;
+    -webkit-transition:opacity 0.2s linear;
+    transition:opacity 0.2s linear
+}
+.article-list-item h5:hover .icon {
+    opacity:1
+}
+.article-list-item a {
+    text-decoration:none
+}
+.article-list-item p {
+    display:block;
+    margin:12px 0 10px;
+    font-size:15px;
+    color:#615b5b
+}
+.article-list-footer {
+    display:block
+}
+.article-list-footer span, .article-list-footer a {
+    display:inline-block;
+    font-size:12px;
+    color:#ada8a8;
+    vertical-align:middle;
+}
+.article-list-footer a {
+    margin-right:7.5px;
+    color:#615b5b
+}
+.article-list-footer a:hover {
+    color:#121111
+}
+.article-list-footer a:last-child {
+    margin-right:0
+}
+.article-list-divider {
+    margin:0 15px
+}
+.article-list-tags p {
+    display:inline-block;
+    vertical-align:top;
+    font-size: 12px;
+    color:#ada8a8;
+}
+.article-empty {
+    display:block;
+    margin:100px 0;
+    font-style:italic;
+    color:#ada8a8;
+    text-align:center
+}
+.article-pagination-right {
+    float:right
+}
+.article-header {
+    display:block;
+    padding-bottom:30px;
+    margin-bottom:30px;
+    border-bottom:1px solid #ebeaea
+}
+.article-header p {
+    display:block;
+    margin:12px 0 10px;
+    font-size:15px;
+    color:#615b5b
+}
+.article-header a {
+    text-decoration:none
+}
+.article-content {
+    display:block
+}
+.article-content p, .article-content ul, .article-content ol, .article-content img, .article-content blockquote {
+    display:block;
+    margin-bottom:30px
+}
+.article-content h2, .article-content h3, .article-content h4 {
+    display:block;
+    margin-bottom:10px;
+    font-family:"Hiragino Sans GB", "Hiragino Sans GB W3", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    color:#121111
+}
+.article-content blockquote p {
+    margin-bottom:0
+}
+.article-content img.emoji {
+    display:inline-block;
+    margin-top:-4px;
+    margin-bottom:0;
+    vertical-align:middle
+}
+.article-share {
+    display:block;
+    margin-top:-4px
+}
+.article-share a {
+    display:inline-block;
+    margin-right:12px;
+    vertical-align:middle
+}
+.article-share a svg {
+    vertical-align:middle;
+    -webkit-transition:fill 0.2s linear;
+    transition:fill 0.2s linear;
+    fill:#ada8a8
+}
+.article-share a:hover svg {
+    fill:#615b5b
+}
+@media all and (max-width: 767px) {
+    .article-list-footer {
+        display:block
+    }
+    .article-list-divider:last-of-type {
+        display:none
+    }
+    .article-list-tags {
+        display:block;
+        margin-top:-7px
+    }
+}

@@ -1,6 +1,13 @@
+/*
+    First Name: Lingkun
+    Last Name: Sun
+    Student Id: 1001989812
+ */
+
 .tile {
     position: relative;
 }
+
 .tile-big {
     height: 130px;
     width: 150px;
@@ -9,20 +16,25 @@
     height: 130px;
     width: 150px;
 }
+
 .tile-small {
     height: 50px;
     width: 60px
 }
-.tile img {
+
+.img {
     width: 100%;
 }
+
 .addCart {
     position: absolute;
     right: 5px;
 }
+
 .cartIcon {
     font-size: 2em;
 }
+
 .desc {
     position: absolute;
     width: 100%;
@@ -31,6 +43,7 @@
     color: antiquewhite;
     text-align: center;
 }
+
 .desc:hover {
     opacity: 0.7;
     background-color: rebeccapurple;

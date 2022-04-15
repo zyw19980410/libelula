@@ -1,0 +1,53 @@
+/*
+    First Name: Xuewei
+    Last Name: Niu
+    Student Id: 1001989800
+*/
+
+.grid {
+    display:block;
+    padding:0;
+    margin:0 -20px;
+    font-size:0;
+    text-align:left
+}
+.grid-cell {
+    display:inline-block;
+    width:100%;
+    padding: 0 20px;
+    margin:0;
+    font-size:16px;
+    text-align:left;
+    vertical-align:top;
+}
+.grid-centered {
+    max-width:650px;
+    margin-right:auto;
+    margin-left:auto
+}
+.mainbox {
+	padding: 0 5% 0 5%;
+	margin: 20px;
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(252,252,252,0.9)), to(rgba(255,255,255,0.9)), color-stop(3%, rgba(247,247,247,0.9)), color-stop(12%, rgba(242,242,242,0.9)), color-stop(90%, rgba(249,249,249,0.9)));
+	background-image: -webkit-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	background-image: -moz-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	background-image: -o-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	background-image: -ms-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	background-image: linear-gradient(to bottom, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.75); 
+	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+}
+.fribox {
+	padding: 3% 0 3% 0;
+	margin: 5%;
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(252,252,252,0.9)), to(rgba(255,255,255,0.9)), color-stop(3%, rgba(247,247,247,0.9)), color-stop(12%, rgba(242,242,242,0.9)), color-stop(90%, rgba(249,249,249,0.9)));
+	background-image: -webkit-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	background-image: -moz-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	background-image: -o-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	background-image: -ms-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	background-image: linear-gradient(to bottom, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.75); 
+	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+}

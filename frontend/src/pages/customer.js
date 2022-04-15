@@ -103,8 +103,10 @@ class Customer extends React.Component {
         });
     };
     render() {
+        console.log(Role.CurrentRole)
         return (
             <div>
+
                 <Modal title="Detail" visible={ this.state.modalVisible } okText="Add to cart" onCancel={ this.handleCancel } onOk={ this.handleOk }>
                     <h2>{this.state.currentProduct.title}</h2>
                     <img src={this.state.currentProduct.img} alt="" className={style["detail-img"]} />
@@ -117,7 +119,7 @@ class Customer extends React.Component {
                         <h1>Hello Customer</h1>
                     </Col>
                     <Col offset={22}>
-                        <Icon type="shopping-cart" className={style.cartIcon} />
+                        <Icon type="shopping-cart" className={style["cartIcon"]} />
                     </Col>
                 </Row>
 
@@ -132,6 +134,7 @@ class Customer extends React.Component {
                                 })
                             }
                         </Row>
+
 
                         {/* <Row gutter={[16, 16]}>
                             <h2>Explore Courses</h2>
@@ -157,7 +160,7 @@ class Customer extends React.Component {
                         <ul>
                             {
                                 this.listItems.map((item, idx) => {
-                                    return <li>{item}</li>
+                                    return <li key={idx}>{item}</li>
                                 })
                             }
                         </ul>

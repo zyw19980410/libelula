@@ -1,5 +1,7 @@
 .idea
 .vscode
+yarn.lock
+dist
 
 # Created by https://www.toptal.com/developers/gitignore/api/react,laravel
 # Edit at https://www.toptal.com/developers/gitignore?templates=react,laravel
@@ -44,4 +46,6 @@ bower_components
 psd
 thumb
 sketch
+
+~$belula_prototype.docx
 

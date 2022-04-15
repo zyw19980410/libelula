@@ -1,0 +1,44 @@
+.content {
+    padding: 30px 50px
+}
+
+.service-content {
+    padding: 50px;
+    background-color: white;
+}
+
+.logo {
+    color: white;
+    line-height: 64px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.menu {
+    line-height: 64px;
+    display: "inline";
+}
+
+.menu-right {
+    height: 64px;
+    padding-top: 16px;
+}
+
+.ghost-btn {
+    text-align: center;
+    margin-right: 25px;
+    float: right;
+}
+
+.footer {
+    text-align: center;
+}
+
+.float-right {
+    float: right;
+}
+
+.clear {
+    clear: both;
+}

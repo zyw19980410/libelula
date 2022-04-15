@@ -1,0 +1,115 @@
+/*
+Theme Name: Libelula
+Theme URI: https://xxn9800.uta.cloud/libelula/blog/
+Description: A simple theme for wordpress.
+Author: Miaochen Li & Lingkun Sun & Xuewei Niu
+Author URI:https://xxn9800.uta.cloud/libelula/blog/
+Version: 0.0.1
+Time: 2022.3.21
+Tags:Simplicity,flat,responsive
+*/
+
+/*
+    First Name: Lingkun
+    Last Name: Sun
+    Student Id: 1001989812
+*/
+
+@import url(css/common.css);
+@import url(css/footer.css);
+@import url(css/grid.css);
+@import url(css/article.css);
+@import url(css/header.css);
+@import url(css/icon.css);
+@import url(css/comment.css);
+
+.github-corner:hover .octo-arm {
+	animation:octocat-wave 560ms ease-in-out
+}
+@keyframes octocat-wave {0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}
+.about {
+    padding:100px 0
+}
+.about h1 {
+    margin:50px 0 15px
+}
+.post-arc li {
+	display:block;
+	list-style: none;
+}
+.post-arc a {
+	text-decoration: none;
+}
+.post-arc a:hover {
+	color: rgba(206,206,206);
+}
+.primary-site a {
+	text-decoration: none;
+}
+.primary-site img {
+	width: 60px;
+	height: 60px;
+}
+.slogan {
+	text-align: center;
+}
+/*定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸*/
+::-webkit-scrollbar
+{
+	width: 9px;
+	height: 16px;
+	background-color: #F5F5F5;
+}
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	border-radius: 10px;
+	background-color: #F5F5F5;
+}
+ 
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+	background-color: #313131;
+	transition-delay: 100ms;
+	transition-duration: 0.5s;
+}
+::-webkit-scrollbar-thumb:hover
+{
+	background-color: #555;
+} 
+
+.tagcloud a{
+	text-decoration: none;
+}
+.entry-content {
+	text-align: center;
+}
+.entry-content img{
+	text-align: center;
+	border-radius: 90px;
+	-webkit-transition: -webkit-transform 0.8s ease-out ;
+}
+.entry-content img:hover{
+	-webkit-transform: rotate(360deg);
+}
+.Guanyu {
+	padding: 0 5% 0 5%;
+	margin: 20px;
+	border-radius: 5px;
+	background-image: -webkit-gradient(linear, center top, center bottom, from(rgba(252,252,252,0.9)), to(rgba(255,255,255,0.9)), color-stop(3%, rgba(247,247,247,0.9)), color-stop(12%, rgba(242,242,242,0.9)), color-stop(90%, rgba(249,249,249,0.9)));
+	background-image: -webkit-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	background-image: -moz-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	background-image: -o-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	background-image: -ms-linear-gradient(top, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	background-image: linear-gradient(to bottom, rgba(252,252,252,0.9), rgba(247,247,247,0.9) 3%, rgba(242,242,242,0.9) 12%, rgba(249,249,249,0.9) 90%, rgba(255,255,255,0.9));
+	-webkit-box-shadow: 0 1px 5px rgba(0,0,0,0.75); 
+	-moz-box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+	box-shadow: 0 1px 5px rgba(0,0,0,0.75);
+}
+.Guanyu h1{
+	letter-spacing: 10px;
+}
