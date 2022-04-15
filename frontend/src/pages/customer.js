@@ -2,6 +2,7 @@ import React from "react";
 import { Icon, Row, Col, Modal } from "antd";
 import DemoPic from "../assets/images/demo3.jpeg";
 import style from  "../assets/css/customer.css";
+import Role from "../store/role";
 
 class Customer extends React.Component {
     state = { modalVisible: false }
@@ -32,6 +33,7 @@ class Customer extends React.Component {
         "1", "2", "3", "4", "5", "6", "7", "8"
     ]
     render() {
+        console.log(Role.CurrentRole)
         return (
             <div>
                 <Modal title="Product Detail" visible={this.state.modalVisible} okText="Order" onCancel={()=>{this.hideModal()}}>

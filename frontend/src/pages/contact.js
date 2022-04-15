@@ -74,7 +74,7 @@ class Contact extends React.Component {
                         )}
                     </Form.Item>
                     <Form.Item>
-                        <Button type={"primary"} htmlType={"submit"} className={style["submit-btn"]}>
+                        <Button type={"primary"} htmlType={"submit"} className={style["submit-btn"]} onClick={this.submit}>
                             Submit
                         </Button>
                     </Form.Item>
@@ -90,6 +90,10 @@ class Contact extends React.Component {
         } else {
             callback();
         }
+    }
+
+    submit = (event) => {
+        alert("Your feedback is sent, we will reply you as soon as possible, thanks!")
     }
 }
 

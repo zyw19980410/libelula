@@ -2,7 +2,9 @@ import React from "react";
 import {Col, Row, Form, Input, Icon, Button} from "antd";
 import style from "../assets/css/login_register.css";
 import Role from "../store/role";
+import Auth from "../store/auth"
 import {router} from "umi";
+import request from 'umi-request';
 
 class Login_register extends React.Component {
     render() {
@@ -77,7 +79,8 @@ class Login_register extends React.Component {
                             )}
                         </Form.Item>
                         <Form.Item>
-                            <Button type={"primary"} htmlType={"submit"} className={style["login-form-button"]}>
+                            <Button type={"primary"} htmlType={"submit"} className={style["login-form-button"]}
+                                    onClick={this.doUserRegister}>
                                 Register
                             </Button>
                         </Form.Item>
@@ -87,22 +90,68 @@ class Login_register extends React.Component {
         )
     }
 
-    // TODO(justxuewei): redirect to other pages
     doUserLogin = (event) => {
         const {form} = this.props
-        if (form.getFieldValue('username') === "customer") {
-            router.push("/customer")
-            Role.CurrentRole = Role.CUSTOMER_ROLE
-        } else if (form.getFieldValue('username') === "admin") {
-            router.push("/admin/user_list")
-            Role.CurrentRole = Role.ADMIN_ROLE
+
+        if (form.getFieldValue('username') === "admin") {
+            request.post('http://127.0.0.1:10000/api/admin/login', {
+                data: {
+                    username: 'admin',
+                    password: form.getFieldValue('password')
+                }
+            }).then(function (response) {
+                console.log(response)
+                Auth.Token = response['body']['access_token']
+                console.log("admin is login")
+                router.push("/admin/user_list")
+                Role.CurrentRole = Role.ADMIN_ROLE
+            }).catch(function (error) {
+                alert(error.data['message'])
+            })
         } else if (form.getFieldValue('username') === "super-admin") {
-            router.push("/admin/user_list")
-            Role.CurrentRole = Role.ADMIN_ROLE
+            request.post('http://127.0.0.1:10000/api/admin/login', {
+                data: {
+                    username: 'admin',
+                    password: form.getFieldValue('password')
+                }
+            }).then(function (response) {
+                Auth.Token = response['body']['access_token']
+                console.log("admin is login")
+                router.push("/admin/user_list")
+                Role.CurrentRole = Role.SUPER_ADMIN_ROLE
+            }).catch(function (error) {
+                alert(error.data['message'])
+            })
         } else {
-            router.push("/")
-            Role.CurrentRole = Role.ANONYMOUS_ROLE
+            request.post('http://127.0.0.1:10000/api/customer/login', {
+                data: {
+                    mobile: form.getFieldValue('username'),
+                    password: form.getFieldValue('password')
+                }
+            }).then(function (response) {
+                Role.CurrentRole = Role.CUSTOMER_ROLE
+                Auth.Token = response['body']['access_token']
+                router.push("/customer")
+            }).catch(function (error) {
+                alert(error.data['message'])
+            })
         }
+    }
+
+    doUserRegister = (event) => {
+        const {form} = this.props
+
+        request.post('http://127.0.0.1:10000/api/customer', {
+            data: {
+                mobile: form.getFieldValue('reg-username'),
+                password: form.getFieldValue('reg-password'),
+                password_confirmation: form.getFieldValue('reg-reenter-password'),
+            }
+        }).then(function (response) {
+            router.push("/customer")
+        }).catch(function (error) {
+            alert(error.data['message'])
+        })
     }
 }
 
