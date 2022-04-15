@@ -86,7 +86,7 @@ class AdminOrderController extends Controller
     {
         if ($request->has('address')) {
             $address = $request->get('address');
-            if (!isset($address['name']) && is_null($address['name'])) return $this->jsonErrorResponse(405, "姓名 不能为空");
+            if (!isset($address['name']) && is_null($address['name'])) return $this->jsonErrorResponse(405, "name is required");
             if (!isset($address['province']) && is_null($address['province'])) return $this->jsonErrorResponse(405, "省 不能为空");
             if (!isset($address['city']) && is_null($address['city'])) return $this->jsonErrorResponse(405, "市 不能为空");
             if (!isset($address['detail']) && is_null($address['detail'])) return $this->jsonErrorResponse(405, "详细地址 不能为空");

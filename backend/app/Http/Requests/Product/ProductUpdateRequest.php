@@ -50,7 +50,7 @@ class ProductUpdateRequest extends FormRequest
             "product.product_title"=>'商品名称',
             "product.product_unit"=>"商品单位",
             "product.product_des"=>"商品描述",
-            "product.on_sale"=>"商品上架状态",
+            "product.on_sale"=>"on_sale",
             "content"=>"商品详情",
             "images.*.image_id"=>"图片ID",
             "images.*.sort"=>"图片排序",

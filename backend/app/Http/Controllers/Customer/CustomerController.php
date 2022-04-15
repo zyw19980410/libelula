@@ -24,9 +24,9 @@ class CustomerController extends Controller
         ]);
         $customer->save();
         if($customer){
-            return $this->jsonSuccessResponse($this->respondWithToken(auth('customers')->login($customer)),"register succeed.");
+            return $this->jsonSuccessResponse($this->respondWithToken(auth('customers')->login($customer)),"Register succeed.");
         }else{
-            return $this->jsonErrorResponse(401,"register failed.");
+            return $this->jsonErrorResponse(401,"Register failed.");
         }
     }
 
@@ -34,7 +34,7 @@ class CustomerController extends Controller
     {
         $credentials = \request(['mobile','password']);
         if (!$token = auth('customers')->attempt($credentials)) {
-            return $this->jsonErrorResponse(401,"用户认证失败（如：密码错误）");
+            return $this->jsonErrorResponse(401,"Login failed: password is incorrect.");
         }
         return $this->jsonSuccessResponse($this->respondWithToken($token));
     }
