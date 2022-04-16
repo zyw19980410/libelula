@@ -12,31 +12,52 @@ class Customer extends React.Component {
         this.state = {
             modalVisible: false,
             currentProduct: {},
-            products:[]
+            products: [],
+            orders: []
         }
 
         let self = this
         request
-        .get('http://localhost:10000/api/product?page=1&pageSize=100?page=1&pageSize=100')
-        .then(function (response) {
-            let products = []
-            response['body']['data'].forEach((v, i) => {
-                products.push({
-                    id: v['id'],
-                    img: v['img'],
-                    title: v['product_title'],
-                    price: v['price'],
-                    stock: v['stock'],
+            .get('http://localhost:10000/api/product?page=1&pageSize=100?page=1&pageSize=100')
+            .then(function (response) {
+                let products = []
+                response['body']['data'].forEach((v, i) => {
+                    products.push({
+                        id: v['id'],
+                        img: v['img'],
+                        title: v['product_title'],
+                        price: v['price'],
+                        stock: v['stock'],
+                    })
+                })
+                self.setState({
+                    products: products
                 })
             })
-            self.setState({
-                products: products
+            .catch(function (error) {
+                console.log(error)
+                alert(error.data['message'])
             })
-        })
-        .catch(function (error) {
-            console.log(error)
-            alert(error.data['message'])
-        })
+
+        request
+            .get('http://localhost:10000/api/order?page=1&pageSize=15&name=&no=20&status=', {headers: {Authorization: `Bearer ${Auth.Token}`}})
+            .then(function (response) {
+                let orders = []
+                response['body']['data'].forEach((v, i) => {
+                    orders.push({
+                        no: v['no'],
+                        amount: v['amount'],
+                        status: v['status'],
+                    })
+                })
+                self.setState({
+                    orders: orders
+                })
+            })
+            .catch(function (error) {
+                console.log(error)
+                alert(error.data['message'])
+            })
 
     }
     listItems = [
@@ -53,23 +74,23 @@ class Customer extends React.Component {
     showModal = id => {
         self = this
         request.get(`http://localhost:10000/api/product/${id}`)
-        .then(function (response) {
-            self.setState({
-                currentProduct: {
-                    id: id,
-                    title: response.body.product['product_title'],
-                    desc: response.body.product['product_des'],
-                    img: response.body.images[0]['url'],
-                    price: response.body.variants[0]['price'],
-                    variant_id: response.body.variants[0]['id'],
-                },
-                modalVisible: true,
+            .then(function (response) {
+                self.setState({
+                    currentProduct: {
+                        id: id,
+                        title: response.body.product['product_title'],
+                        desc: response.body.product['product_des'],
+                        img: response.body.images[0]['url'],
+                        price: response.body.variants[0]['price'],
+                        variant_id: response.body.variants[0]['id'],
+                    },
+                    modalVisible: true,
+                })
             })
-        })
-        .catch(function (error) {
-            console.log(error)
-            alert(error.data['message'])
-        })
+            .catch(function (error) {
+                console.log(error)
+                alert(error.data['message'])
+            })
     };
 
     handleOk = e => {
@@ -82,17 +103,17 @@ class Customer extends React.Component {
             return
         }
         request.post('http://localhost:10000/api/cart', {
-            data: {variant_id: this.state.currentProduct.variant_id, quantity: 1},
-            headers: {Authorization: `Bearer ${Auth.Token}`}
+            data: { variant_id: this.state.currentProduct.variant_id, quantity: 1 },
+            headers: { Authorization: `Bearer ${Auth.Token}` }
         })
-        .then(function (response) {
-            self.setState({
-                modalVisible: false,
+            .then(function (response) {
+                self.setState({
+                    modalVisible: false,
+                })
             })
-        })
-        .catch(function (error) {
-            console.log(error)
-        })
+            .catch(function (error) {
+                console.log(error)
+            })
     };
 
     handleCancel = e => {
@@ -105,7 +126,7 @@ class Customer extends React.Component {
         return (
             <div>
 
-                <Modal title="Detail" visible={ this.state.modalVisible } okText="Add to cart" onCancel={ this.handleCancel } onOk={ this.handleOk }>
+                <Modal title="Detail" visible={this.state.modalVisible} okText="Add to cart" onCancel={this.handleCancel} onOk={this.handleOk}>
                     <h2>{this.state.currentProduct.title}</h2>
                     <img src={this.state.currentProduct.img} alt="" className={style["detail-img"]} />
                     <p className={style['price-tag']}>Price: $ {this.state.currentProduct.price}</p>
@@ -157,8 +178,8 @@ class Customer extends React.Component {
                     <Col offset={19}>
                         <ul>
                             {
-                                this.listItems.map((item, idx) => {
-                                    return <li key={idx}>{item}</li>
+                                this.state.orders.map((item, idx) => {
+                                    return <li key={idx}>NO: {item.no} Amount: {item.amount}</li>
                                 })
                             }
                         </ul>

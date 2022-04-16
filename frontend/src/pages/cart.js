@@ -1,4 +1,4 @@
-import { Table, Col, Row, Button } from 'antd';
+import { Table, Col, Row, Button, message } from 'antd';
 import style from "../assets/css/cart.css";
 import request from 'umi-request'
 import Auth from '../store/auth'
@@ -20,7 +20,7 @@ class Cart extends React.Component {
             response['body'].forEach((v, i) => {
                 sum += parseFloat(v['price'])
                 products.push({
-                    // id: v['id'],
+                    id: v['variant_id'],
                     // img: v['img'],
                     title: v['product_title'],
                     price: v['price'],
@@ -49,6 +49,35 @@ class Cart extends React.Component {
         },
     ];
 
+    handleOrder = () => {
+        let items = []
+        this.state.itemList.map((item) => {
+            items.push({"variant_id": item.id, "quantity":1})
+        })
+        let self = this
+        request.post('http://localhost:10000/api/order', {
+            headers: { Authorization: `Bearer ${Auth.Token}`},
+            data: {
+                address:{
+                    name:"order tester",
+                    province:"beijing",
+                    city:"beijing",
+                    district:"haidian",
+                    detail:"bupt",
+                    mobile:"13099998888",
+                    zip:null
+                },
+                items: items
+            }
+        })
+            .then(function (response) {
+                message.success("Ordered!")
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    }
+
     render() {
         const { cardsLoading } = this.props;
 
@@ -57,7 +86,7 @@ class Cart extends React.Component {
                 <Table columns={this.columns} dataSource={this.state.itemList} loading={cardsLoading} rowKey="id" />
                 <Row>
                     <Col offset={22}><text>Total: ${this.state.sum}</text></Col>
-                    <Col offset={22}><Button>Checkout</Button></Col>
+                    <Col offset={22}><Button onClick={this.handleOrder}>Checkout</Button></Col>
                 </Row>
             </div>
         );
