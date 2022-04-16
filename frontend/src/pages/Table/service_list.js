@@ -3,7 +3,7 @@ import request from 'umi-request'
 import Auth from '../../store/auth'
 
 class service_list extends React.Component {
-    test = (event) => {
+    addPro = (event) => {
         event.preventDefault()
         // console.log(this.state)
         let self = this
@@ -75,7 +75,11 @@ class service_list extends React.Component {
                     })
                 })
                 self.setState({
-                    products: products
+                    products: products.filter((item) => {
+                        let idx1 = item.title.indexOf("service")
+                        let idx2 = item.title.indexOf("Service")
+                        return idx1 != -1 || idx2 != -1
+                    })
                 })
             })
             .catch(function (error) {
@@ -93,7 +97,7 @@ class service_list extends React.Component {
             render: text => <a>{text}</a>,
         },
         {
-            title: 'Product Title',
+            title: 'Service Name',
             dataIndex: 'title',
             key: 'product_title',
         },
@@ -132,8 +136,6 @@ class service_list extends React.Component {
             key: 'action',
             render: (text, record) => (
                 <span>
-                    <a>Modify</a>
-                    <Divider type="vertical" />
                     <a onClick={()=>{this.deletePro(record.id)}}>Delete</a>
                 </span>
             ),
@@ -171,13 +173,13 @@ class service_list extends React.Component {
             <div>
                 <Table columns={this.columns} dataSource={this.state.products} />
 
-                <Form layout="inline" onSubmit={this.test}>
+                <Form layout="inline" onSubmit={this.addPro}>
                     <Form.Item>
-                        <text>Add New Product: </text>
+                        <text>Add New Service: </text>
                     </Form.Item>
                     <Form.Item>
                         <Input
-                            placeholder="Product Title"
+                            placeholder="Service Title"
                             value={this.state.title}
                             onChange={(p) => {this.setState({title : p.target.value})}}
                         />
