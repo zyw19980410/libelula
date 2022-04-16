@@ -29,16 +29,28 @@ class service_list extends React.Component {
                   }
                 ]
               },
-            headers: {Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6MTAwMDBcL2FwaVwvYWRtaW5cL2xvZ2luIiwiaWF0IjoxNjUwMDc2OTg0LCJleHAiOjE2NTAwODA1ODQsIm5iZiI6MTY1MDA3Njk4NCwianRpIjoiamZnVVFwbE0wdE1oNWdZZyIsInN1YiI6MSwicHJ2IjoiZGY4ODNkYjk3YmQwNWVmOGZmODUwODJkNjg2YzQ1ZTgzMmU1OTNhOSJ9.9469j_sA_YmOUuPjbzwN5qqwAym-SUmUFGEz1DpR_7M`}
+            headers: {Authorization: `Bearer ${Auth.Token}`}
         }).then(function (response) {
             self.setState({products : [...self.state.products, {
             id: 4,
             title: self.state.title,
             price: self.state.price,
-            stock: self.state.stock,}]})
+            stock: self.state.stock}]})
         })
         
     }
+
+    deletePro = (id) => {
+        let self = this
+        request.delete(`http://localhost:10000/api/admin/product/${id}`,
+         {headers: {Authorization: `Bearer ${Auth.Token}`}})
+        .then(function (response) {
+            self.setState({products : self.state.products.filter((item) => {
+                return item.id != id
+            })})
+        })
+    }
+
     constructor(props) {
         super(props)
 
@@ -122,7 +134,7 @@ class service_list extends React.Component {
                 <span>
                     <a>Modify</a>
                     <Divider type="vertical" />
-                    <a >Delete</a>
+                    <a onClick={()=>{this.deletePro(record.id)}}>Delete</a>
                 </span>
             ),
         },
