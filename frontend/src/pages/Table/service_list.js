@@ -3,7 +3,7 @@ import request from 'umi-request'
 import Auth from '../../store/auth'
 
 class service_list extends React.Component {
-    test = (event) => {
+    addPro = (event) => {
         event.preventDefault()
         // console.log(this.state)
         let self = this
@@ -29,16 +29,28 @@ class service_list extends React.Component {
                   }
                 ]
               },
-            headers: {Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6MTAwMDBcL2FwaVwvYWRtaW5cL2xvZ2luIiwiaWF0IjoxNjUwMDc2OTg0LCJleHAiOjE2NTAwODA1ODQsIm5iZiI6MTY1MDA3Njk4NCwianRpIjoiamZnVVFwbE0wdE1oNWdZZyIsInN1YiI6MSwicHJ2IjoiZGY4ODNkYjk3YmQwNWVmOGZmODUwODJkNjg2YzQ1ZTgzMmU1OTNhOSJ9.9469j_sA_YmOUuPjbzwN5qqwAym-SUmUFGEz1DpR_7M`}
+            headers: {Authorization: `Bearer ${Auth.Token}`}
         }).then(function (response) {
             self.setState({products : [...self.state.products, {
             id: 4,
             title: self.state.title,
             price: self.state.price,
-            stock: self.state.stock,}]})
+            stock: self.state.stock}]})
         })
         
     }
+
+    deletePro = (id) => {
+        let self = this
+        request.delete(`http://localhost:10000/api/admin/product/${id}`,
+         {headers: {Authorization: `Bearer ${Auth.Token}`}})
+        .then(function (response) {
+            self.setState({products : self.state.products.filter((item) => {
+                return item.id != id
+            })})
+        })
+    }
+
     constructor(props) {
         super(props)
 
@@ -63,7 +75,11 @@ class service_list extends React.Component {
                     })
                 })
                 self.setState({
-                    products: products
+                    products: products.filter((item) => {
+                        let idx1 = item.title.indexOf("service")
+                        let idx2 = item.title.indexOf("Service")
+                        return idx1 != -1 || idx2 != -1
+                    })
                 })
             })
             .catch(function (error) {
@@ -81,7 +97,7 @@ class service_list extends React.Component {
             render: text => <a>{text}</a>,
         },
         {
-            title: 'Product Title',
+            title: 'Service Name',
             dataIndex: 'title',
             key: 'product_title',
         },
@@ -120,9 +136,7 @@ class service_list extends React.Component {
             key: 'action',
             render: (text, record) => (
                 <span>
-                    <a>Modify</a>
-                    <Divider type="vertical" />
-                    <a >Delete</a>
+                    <a onClick={()=>{this.deletePro(record.id)}}>Delete</a>
                 </span>
             ),
         },
@@ -159,13 +173,13 @@ class service_list extends React.Component {
             <div>
                 <Table columns={this.columns} dataSource={this.state.products} />
 
-                <Form layout="inline" onSubmit={this.test}>
+                <Form layout="inline" onSubmit={this.addPro}>
                     <Form.Item>
-                        <text>Add New Product: </text>
+                        <text>Add New Service: </text>
                     </Form.Item>
                     <Form.Item>
                         <Input
-                            placeholder="Product Title"
+                            placeholder="Service Title"
                             value={this.state.title}
                             onChange={(p) => {this.setState({title : p.target.value})}}
                         />
