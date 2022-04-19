@@ -62,6 +62,10 @@ export default {
                         {path: '/admin/user_list', component: 'Table/user_list'},
                     ]
                 },
+                {
+                    path: "chat",
+                    component: "./chat"
+                }
             ]
         }
     ]
