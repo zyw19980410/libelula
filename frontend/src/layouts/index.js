@@ -2,6 +2,7 @@ import React from "react";
 import {Layout, Menu, Row, Col, Button} from "antd";
 import Link from "umi/link";
 import style from "../assets/css/layouts.css";
+import Auth from "../store/auth"
 
 const {Header, Content, Footer} = Layout;
 
@@ -43,13 +44,13 @@ class IndexLayout extends React.Component {
                                 <Menu.Item key="3"><Link to={"/contact"}>Contact</Link></Menu.Item>
                                 <Menu.Item key="4"><Link to={"/about"}>About</Link></Menu.Item>
                                 <Menu.Item key="5"><Link to={"/cart"}>Cart</Link></Menu.Item>
-                                <Menu.Item key="5"><Link to={"/chat"}>Chat</Link></Menu.Item>
+                                <Menu.Item key="6"><Link to={"/chat"}>Chat</Link></Menu.Item>
                             </Menu>
                         </Col>
                         <Col span={6} className={style["menu-right"]}>
                             <Button type="primary" shape="circle" icon="search" className={style["float-right"]}/>
                             <Button ghost className={style["ghost-btn"]} type="link">
-                                <Link to={"/login_register"}>Login/Register</Link>
+                                {Auth.Token === "" ? <Link to={"/login_register"}>Login/Register</Link> : <Link to={"/customer"}>Customer</Link>}
                             </Button>
                             <div className={style["clear"]}/>
                         </Col>

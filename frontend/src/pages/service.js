@@ -1,8 +1,8 @@
 import React from "react";
-import {Row, Col, Card, Button} from "antd";
+import {Row, Col, Card, Button, message} from "antd";
 import style from "../assets/css/service.css"
 import request from 'umi-request'
-
+import Auth from '../store/auth'
 
 class ServiceCard extends React.Component {
     constructor(props) {
@@ -17,7 +17,7 @@ class ServiceCard extends React.Component {
                     <p/>
                     <p>Price: ${this.props.service.price}<br/>Stock: {this.props.service.stock}
                     </p>
-                    <Button type="primary">Add to cart</Button>
+                    <Button type="primary" onClick={()=>{this.props.parent.handleOrder(this.props.service.id)}}>Add to cart</Button>
                 </Card>
             </Col>
         )
@@ -53,14 +53,30 @@ class Service extends React.Component {
             })
             .catch(function (error) {
                 console.log(error)
-                alert(error.data['message'])
+                // alert(error.data['message'])
             })
     }
 
+    handleOrder = variant_id => {
+        if (Auth.Token === "") {
+            message.error("Please log in!")
+            return
+        }
+        request.post('http://localhost:10000/api/cart', {
+            data: { variant_id: variant_id, quantity: 1 },
+            headers: { Authorization: `Bearer ${Auth.Token}` }
+        })
+            .then(function (response) {
+                message.success("Added")
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+    };
     render() {
         let service_cards = []
         for (let i = 0; i < this.state.services.length; i++) {
-            service_cards.push(<ServiceCard service={this.state.services[i]}/>)
+            service_cards.push(<ServiceCard service={this.state.services[i]} parent={this}/>)
         }
         return (
             <div>

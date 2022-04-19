@@ -33,7 +33,11 @@ class Cart extends React.Component {
         })
         .catch(function (error) {
             console.log(error)
-            alert(error.data['message'])
+            if (Auth.Token === "") {
+                message.error("Not logged in")
+                self.props.history.push('login_register/')
+            }
+            
         })
     }
 
