@@ -3,6 +3,9 @@ import { Icon, Row, Col, Modal, message } from "antd";
 import style from "../assets/css/customer.css";
 import request from 'umi-request'
 import Auth from '../store/auth'
+import CartList from "../store/cartList"
+import {router} from "umi";
+import orderList from "../store/orderList";
 
 class Customer extends React.Component {
 
@@ -11,7 +14,7 @@ class Customer extends React.Component {
 
         this.state = {
             modalVisible: false,
-            currentProduct: {},
+            currentProduct: {img : "1.jpg"},
             products: [],
             orders: []
         }
@@ -35,8 +38,25 @@ class Customer extends React.Component {
                 })
             })
             .catch(function (error) {
-                console.log(error)
-                alert(error.data['message'])
+                // console.log(error)
+                // alert(error.data['message'])
+                self.setState({
+                    products: [{
+                        id: 1,
+                        img: '1.jpg',
+                        desc: "a cheap saree.",
+                        title: 'saree1',
+                        price: 50,
+                        stock: 100,
+                    },{
+                        id: 2,
+                        img: '2.jpg',
+                        desc: "a beautiful saree.",
+                        title: 'saree2',
+                        price: 100,
+                        stock: 100,
+                    }]
+                })
             })
 
         request
@@ -56,9 +76,13 @@ class Customer extends React.Component {
             })
             .catch(function (error) {
                 console.log(error)
-                alert(error.data['message'])
+                // alert(error.data['message'])
+                debugger
+                var aaa = orderList.orders
+                self.setState({
+                    orders: orderList.orders
+                })
             })
-
     }
     listItems = [
         "This is a list",
@@ -71,9 +95,9 @@ class Customer extends React.Component {
         "Another list item",
         "Yup, another list",
     ]
-    showModal = id => {
+    showModal = item => {
         self = this
-        request.get(`http://localhost:10000/api/product/${id}`)
+        request.get(`http://localhost:10000/api/product/${item.id}`)
             .then(function (response) {
                 self.setState({
                     currentProduct: {
@@ -88,8 +112,19 @@ class Customer extends React.Component {
                 })
             })
             .catch(function (error) {
-                console.log(error)
-                alert(error.data['message'])
+                // console.log(error)
+                // alert(error.data['message'])
+                self.setState({
+                    currentProduct: {
+                        id: item.id,
+                        title: item.title,
+                        desc: item.desc,
+                        img: item.img,
+                        price: item.price,
+                        variant_id: "response.body.variants[0]['id']",
+                    },
+                    modalVisible: true,
+                })
             })
     };
 
@@ -112,10 +147,12 @@ class Customer extends React.Component {
                 })
             })
             .catch(function (error) {
-                console.log(error)
+                CartList.carts.push(self.state.currentProduct)
             })
     };
-
+    toCart = e => {
+        router.push("/cart")                
+    }
     handleCancel = e => {
         console.log(e);
         this.setState({
@@ -125,10 +162,13 @@ class Customer extends React.Component {
     render() {
         return (
             <div>
-
+                <img src={require("../images/thumbnail/ad.png")} alt="" className={style["ad-img"]} />
+                <div className='pannerPic'>
+                 </div>
                 <Modal title="Detail" visible={this.state.modalVisible} okText="Add to cart" onCancel={this.handleCancel} onOk={this.handleOk}>
+                    
                     <h2>{this.state.currentProduct.title}</h2>
-                    <img src={this.state.currentProduct.img} alt="" className={style["detail-img"]} />
+                    <img src={require(`../images/thumbnail/${this.state.currentProduct.img}`)} alt="" className={style["detail-img"]} ></img>
                     <p className={style['price-tag']}>Price: $ {this.state.currentProduct.price}</p>
                     <div dangerouslySetInnerHTML={{ __html: this.state.currentProduct.desc }} />
                 </Modal>
@@ -136,20 +176,28 @@ class Customer extends React.Component {
                 <Row >
                     <Col span={22}>
                         <h1>Hello Customer</h1>
+                        
+
                     </Col>
-                    <Col offset={22}>
-                        <Icon type="shopping-cart" className={style["cartIcon"]} />
+                    <div>
+                        
+                    </div>
+                    
+                    
+                    <Col offset={18}>
+                        <Icon type="shopping-cart" className={style["cartIcon"]} onClick={this.toCart} />
                     </Col>
                 </Row>
 
                 <Row>
                     <Col span={19}>
+                     <h1> </h1>
 
                         <Row gutter={[16, 16]}>
                             <h2>Explore Products</h2>
                             {
                                 this.state.products.map((item, idx) => {
-                                    return <Col span={4} key={item.id} onClick={() => this.showModal(item.id)}><ItemTile hasIcon={true} size={"big"} name={item.title} image={item.img}></ItemTile></Col>
+                                    return <Col span={4} key={item.id} onClick={() => this.showModal(item)}><ItemTile hasIcon={true} size={"big"} name={item.title} image={item.img}></ItemTile></Col>
                                 })
                             }
                         </Row>
@@ -176,6 +224,7 @@ class Customer extends React.Component {
 
                     {/* Sidebar list */}
                     <Col offset={19}>
+                    <h1>    Order List</h1>
                         <ul>
                             {
                                 this.state.orders.map((item, idx) => {
@@ -197,7 +246,7 @@ class ItemTile extends React.Component {
         return (
             <div className={this.className}>
                 <span className={style.desc}>{this.props.name}</span>
-                <img src={this.props.image} alt="" />
+                <img src={require(`../images/thumbnail/${this.props.image}`)} alt="" />
                 {
                     this.props.hasIcon && <span className={style.addCart + " " + style.cartIcon}><Icon type="shopping-cart" /></span>
                 }

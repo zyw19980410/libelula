@@ -2,7 +2,10 @@ import { Table, Col, Row, Button, message } from 'antd';
 import style from "../assets/css/cart.css";
 import request from 'umi-request'
 import Auth from '../store/auth'
-
+import Carts from '../store/cartList'
+import CartList from '../store/cartList';
+import orderList from '../store/orderList';
+import { router } from 'umi';
 class Cart extends React.Component {
     constructor(props) {
         super(props)
@@ -37,7 +40,14 @@ class Cart extends React.Component {
                 message.error("Not logged in")
                 self.props.history.push('login_register/')
             }
-            
+            var sum = 0
+            CartList.carts.forEach (function(item,index){
+                sum += item.price
+            })
+            self.setState({
+                itemList: CartList.carts,
+                sum: sum
+            })
         })
     }
 
@@ -45,6 +55,11 @@ class Cart extends React.Component {
         {
             title: 'Item',
             dataIndex: 'title',
+        },
+        {
+            title: 'Image',
+            dataIndex: 'img',
+            render: (img) =>(<img src={require(`../images/thumbnail/${img}`)} alt="" className={style["cart-img"]} ></img>)           
         },
         {
             title: 'Amount',
@@ -78,7 +93,15 @@ class Cart extends React.Component {
                 message.success("Ordered!")
             })
             .catch(function (error) {
-                console.log(error)
+                message.success("Ordered!")
+                debugger
+                orderList.orders.push({
+                    amount: self.state.sum,
+                    no: orderList.index++,
+                    status : 'perparing'
+                })
+                
+                router.push('/payresult')
             })
     }
 

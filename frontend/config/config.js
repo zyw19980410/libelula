@@ -65,6 +65,9 @@ export default {
                 {
                     path: "chat",
                     component: "./chat"
+                },{
+                    path: "payresult",
+                    component: "./payresult"
                 }
             ]
         }
